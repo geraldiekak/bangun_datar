@@ -14,18 +14,37 @@ class homepage extends StatelessWidget {
           )),
       body: Column(
         children: [
-          Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(color: Colors.green),
-            child: Text("Persegi"),
+          custommenu(imageAsset: "asset/persegip.jpg",title: "persegi"),
+          custommenu(imageAsset: "asset/segitiga.jpg",title: "segitiga"),
+
+        ],
+      ),
+    );
+  }
+}
+
+class custommenu extends StatelessWidget {
+  const custommenu({
+    super.key, required this.imageAsset, required this.title,
+  });
+  final String imageAsset;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(8),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+          color: Colors.green
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            imageAsset,
+            height: 50
           ),
-          Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(color: Colors.green),
-            child: Text("Segitiga"),
-          )
+          Text(title),
         ],
       ),
     );
